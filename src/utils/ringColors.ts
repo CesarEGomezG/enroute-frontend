@@ -1,7 +1,7 @@
 import axios from "axios"
 import { API_URL } from "./constants"
 
-type incompleteColor = {
+export type incompleteColor = {
   id: number
   name: string
   figure?: number
@@ -28,10 +28,10 @@ type colorAPIValues = {
   id: number
   name: string
   multiplier: number
-  tolerance?: number
+  tolerance: number | null
 }
 
-type ringColor = incompleteColor & colorAPIValues
+export type ringColor = incompleteColor & colorAPIValues
 
 export const getCompleteRingColors: () => Promise< ringColor[] > = async () => {
   const { data: multiplierToleranceValues }: { data: colorAPIValues[] } = await axios.get(`${API_URL}/colors`)
@@ -44,7 +44,7 @@ export const getCompleteRingColors: () => Promise< ringColor[] > = async () => {
 }
 
 export const getSignificantFigureColors: () => incompleteColor[] = () => {
-  const significantFigureColors = incompleteRingColors.filter(color => typeof color.figure !== undefined)
+  const significantFigureColors = incompleteRingColors.filter(color => typeof color.figure !== 'undefined')
   return significantFigureColors
 }
 
@@ -55,7 +55,7 @@ export const getMultiplierColors: (ringColors: ringColor[]) => ringColor[] = (ri
 }
 
 export const getToleranceColors: (ringColors: ringColor[]) => ringColor[] = (ringColors) => {
-  const toleranceColors = ringColors.filter(color => typeof color.tolerance !== undefined)
+  const toleranceColors = ringColors.filter(color => color.tolerance !== null)
   return toleranceColors
 }
 
