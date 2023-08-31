@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react"
 import ColorSelect from "./colorSelect"
 import { calculateOhmValue, getCompleteRingColors, getMultiplierColors, getSignificantFigureColors, getToleranceColors, incompleteColor, ringColor } from "@/utils/ringColors"
+import './styles/calculator.css'
 
 export type State = {
   colors: {
@@ -58,6 +59,7 @@ const ColorCalculator = () => {
   }
 
   const calculateValue = () => {
+
     // Encontrar las posiciones de los colores seleccionados en la listas de colores con base en su id
     const firstFigureIndex = state.colors.figures.findIndex(color => color.id === state.values.firstFigure)
     const secondFigureIndex = state.colors.figures.findIndex(color => color.id === state.values.secondFigure)
@@ -66,6 +68,7 @@ const ColorCalculator = () => {
 
     const allPositionsMet = firstFigureIndex !== -1 && secondFigureIndex !== -1 && multiplierIndex !== -1 && toleranceIndex !== -1
     if (allPositionsMet) {
+
       // Obtener los colores seleccionados con su posición en la listas de colores
       const firstFigure = state.colors.figures[firstFigureIndex]
       const secondFigure = state.colors.figures[secondFigureIndex]
@@ -74,6 +77,7 @@ const ColorCalculator = () => {
 
       const validColorsSelected = typeof firstFigure.figure !== 'undefined' && typeof secondFigure.figure !== 'undefined' && tolerance.tolerance !== null
       if (validColorsSelected) {
+
         // Pongo los signos de admiración de TypeScript para decirle al compilador que estoy completamente seguro de que esos
         // valores no son undefined ni null debido a que ya hice la comprobación de eso en la condición 'validColorsSelected'
         const ohmValue = calculateOhmValue(firstFigure.figure!, secondFigure.figure!, multiplier.multiplier, tolerance.tolerance!)
@@ -89,12 +93,13 @@ const ColorCalculator = () => {
   }, [state.load.colorValues, loadColorValues])
 
   return (
-    <div>
-      <div>
-        <ColorSelect colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ firstFigure: colorId })} />
-        <ColorSelect colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ secondFigure: colorId })} />
-        <ColorSelect colors={state.colors.multiplier} selectColor={(colorId: number) => selectColor({ multiplier: colorId })} />
-        <ColorSelect colors={state.colors.tolerance} selectColor={(colorId: number) => selectColor({ tolerance: colorId })} />
+    <div className='calculator'>
+      <p>Select the colors</p>
+      <div className='colors'>
+        <ColorSelect label='First figure' colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ firstFigure: colorId })} />
+        <ColorSelect label='Second figure' colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ secondFigure: colorId })} />
+        <ColorSelect label='Multiplier' colors={state.colors.multiplier} selectColor={(colorId: number) => selectColor({ multiplier: colorId })} />
+        <ColorSelect label='Tolerance' colors={state.colors.tolerance} selectColor={(colorId: number) => selectColor({ tolerance: colorId })} />
       </div>
       <button onClick={calculateValue}>Calculate</button>
       <p>The value is {state.ohmValue}</p>
