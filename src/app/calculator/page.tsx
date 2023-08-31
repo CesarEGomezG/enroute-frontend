@@ -1,5 +1,5 @@
 import ColorCalculator from "@/components/calculator"
-import ColorSelect from "@/components/colorSelector"
+import ColorSelect from "@/components/colorSelect"
 import Link from "next/link"
 
 const Calculator = () => {
