@@ -8,7 +8,7 @@ export type incompleteColor = {
   hex: string
 }
 
-const incompleteRingColors: incompleteColor[] = [
+export const incompleteRingColors: incompleteColor[] = [
   { id: 0, name: 'pink', hex: '#d8a0a6' },
   { id: 1, name: 'silver', hex: '#c0c0c0' },
   { id: 2, name: 'gold', hex: '#ffd700' },
@@ -24,7 +24,7 @@ const incompleteRingColors: incompleteColor[] = [
   { id: 12, name: 'white', figure: 9, hex: '#e3d9c6' }
 ]
 
-type colorAPIValues = {
+export type colorAPIValues = {
   id: number
   name: string
   multiplier: number

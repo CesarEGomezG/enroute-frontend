@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react"
 import ColorSelect from "./colorSelect"
 import { calculateOhmValue, getCompleteRingColors, getMultiplierColors, getSignificantFigureColors, getToleranceColors, incompleteColor, ringColor } from "@/utils/ringColors"
-import './styles/calculator.css'
 
 export type State = {
   colors: {
@@ -32,6 +31,7 @@ const ColorCalculator = () => {
 
   const loadColorValues = useCallback( async (): Promise<void> => {
     const allRingColors = await getCompleteRingColors()
+    console.log(allRingColors)
     const figuresColors = getSignificantFigureColors()
     const multiplierColors = getMultiplierColors(allRingColors)
     const toleranceColors = getToleranceColors(allRingColors)
@@ -93,9 +93,9 @@ const ColorCalculator = () => {
   }, [state.load.colorValues, loadColorValues])
 
   return (
-    <div className='calculator'>
+    <div className="border border-1 border-black rounded-md">
       <p>Select the colors</p>
-      <div className='colors'>
+      <div className="flex flex-row w-full justify-center">
         <ColorSelect label='First figure' colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ firstFigure: colorId })} />
         <ColorSelect label='Second figure' colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ secondFigure: colorId })} />
         <ColorSelect label='Multiplier' colors={state.colors.multiplier} selectColor={(colorId: number) => selectColor({ multiplier: colorId })} />

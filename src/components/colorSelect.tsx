@@ -1,7 +1,8 @@
 'use client'
 
 import { incompleteColor } from "@/utils/ringColors"
-import { ChangeEvent } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
+import "./colorSelect.css"
 
 interface ColorSelectProps {
   label: string,
@@ -10,14 +11,27 @@ interface ColorSelectProps {
 }
 
 const ColorSelect = ({ label, colors, selectColor }: ColorSelectProps) => {
+  const [state, setState] = useState<{ color: string, colorsLoaded: boolean }>({ color: '', colorsLoaded: false })
+  
   const selectValue = (event: ChangeEvent<HTMLSelectElement>) => {
+    const selectedOption = event.target.options[event.target.selectedIndex]
+    const selectedName = selectedOption.textContent
+    const selectedBackgroundColor = `bg-rg_${selectedName}`
+    console.log(selectedBackgroundColor)
+    setState({...state, color: selectedBackgroundColor})
     selectColor( parseInt(event.target.value) )
   }
 
+  useEffect(() => {
+    if (state.colorsLoaded === false && colors.length > 0) {
+      setState({...state, colorsLoaded: true, color: `bg-rg_${colors[0].name}`})
+    }
+  }, [state, colors])
+
   return (
-    <div className='color'>
+    <div className="flex border border-black p-1">
       <p>{label}</p>
-      <select onChange={selectValue}>
+      <select className={`seleccionarColor ${state.color}`} onChange={selectValue}>
         {
           colors.map((color) => {
             return (

@@ -1,0 +1,52 @@
+.seleccionarColor option[value="0"] {
+  background-color: #d8a0a6;
+}
+
+.seleccionarColor option[value="1"] {
+  background-color: #c0c0c0;
+}
+
+.seleccionarColor option[value="2"] {
+  background-color: #ffd700;
+}
+
+.seleccionarColor option[value="3"] {
+  background-color: #0e0e10;
+  color: #ffffff;
+}
+
+.seleccionarColor option[value="4"] {
+  background-color: #7e4b26;
+}
+
+.seleccionarColor option[value="5"] {
+  background-color: #a72920;
+}
+
+.seleccionarColor option[value="6"] {
+  background-color: #f67828;
+}
+
+.seleccionarColor option[value="7"] {
+  background-color: #f6b600;
+}
+
+.seleccionarColor option[value="8"] {
+  background-color: #61993b;
+}
+
+.seleccionarColor option[value="9"] {
+  background-color: #007cb0;
+}
+
+.seleccionarColor option[value="10"] {
+  background-color: #76689a;
+}
+
+.seleccionarColor option[value="11"] {
+  background-color: #7a888e;
+}
+
+.seleccionarColor option[value="12"] {
+  background-color: #e3d9c6;
+}
