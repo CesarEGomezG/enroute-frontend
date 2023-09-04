@@ -5,12 +5,15 @@ import { ChangeEvent, useEffect, useState } from "react"
 import "./colorSelect.css"
 
 interface ColorSelectProps {
-  label: string,
   colors: incompleteColor[],
   selectColor: (colorId: number) => void
 }
 
-const ColorSelect = ({ label, colors, selectColor }: ColorSelectProps) => {
+const capitalizeFirstLetter = (text: string): string => {
+  return text.charAt(0).toUpperCase() + text.slice(1)
+}
+
+const ColorSelect = ({ colors, selectColor }: ColorSelectProps) => {
   const [state, setState] = useState<{ color: string, colorsLoaded: boolean }>({ color: '', colorsLoaded: false })
   
   const selectValue = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -29,18 +32,15 @@ const ColorSelect = ({ label, colors, selectColor }: ColorSelectProps) => {
   }, [state, colors])
 
   return (
-    <div className="flex border border-black p-1">
-      <p>{label}</p>
-      <select className={`seleccionarColor ${state.color}`} onChange={selectValue}>
-        {
-          colors.map((color) => {
-            return (
-              <option key={color.id} value={color.id}>{color.name}</option>
-            )
-          })
-        }
-      </select>
-    </div>
+    <select className="seleccionarColor" onChange={selectValue}>
+      {
+        colors.map((color) => {
+          return (
+            <option key={color.id} value={color.id}>{capitalizeFirstLetter(color.name)}</option>
+          )
+        })
+      }
+    </select>
   )
 }
 

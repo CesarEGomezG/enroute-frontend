@@ -93,16 +93,22 @@ const ColorCalculator = () => {
   }, [state.load.colorValues, loadColorValues])
 
   return (
-    <div className="border border-1 border-black rounded-md">
-      <p>Select the colors</p>
-      <div className="flex flex-row w-full justify-center">
-        <ColorSelect label='First figure' colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ firstFigure: colorId })} />
-        <ColorSelect label='Second figure' colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ secondFigure: colorId })} />
-        <ColorSelect label='Multiplier' colors={state.colors.multiplier} selectColor={(colorId: number) => selectColor({ multiplier: colorId })} />
-        <ColorSelect label='Tolerance' colors={state.colors.tolerance} selectColor={(colorId: number) => selectColor({ tolerance: colorId })} />
+    <div className="flex flex-col justify-center">
+      <div className="bg-enroute_gray rounded-md px-6 py-4 inline-block self-center text-black">
+        <div className="grid grid-cols-2 gap-3">
+          <p className="self-center">First figure color:</p>
+          <ColorSelect colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ firstFigure: colorId })} />
+          <p className="self-center">Second figure color:</p>
+          <ColorSelect colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ secondFigure: colorId })} />
+          <p className="self-center">Multiplier color:</p>
+          <ColorSelect colors={state.colors.multiplier} selectColor={(colorId: number) => selectColor({ multiplier: colorId })} />
+          <p className="self-center">Tolerance color:</p>
+          <ColorSelect colors={state.colors.tolerance} selectColor={(colorId: number) => selectColor({ tolerance: colorId })} />
+        </div>
+        <button className="bg-enroute_yellow px-6 py-3 rounded-sm w-full mt-3" onClick={calculateValue}>Calculate value</button>
       </div>
-      <button onClick={calculateValue}>Calculate</button>
-      <p>The value is {state.ohmValue}</p>
+      <p className="text-center pt-6 pb-2">The value is:</p>
+      <p className="text-center text-xl font-bold">{state.ohmValue}</p>
     </div>
   )
 }

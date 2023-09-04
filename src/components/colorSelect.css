@@ -1,3 +1,9 @@
+select {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 12px;
+}
+
 .seleccionarColor option[value="0"] {
   background-color: #d8a0a6;
 }

@@ -15,7 +15,10 @@ const config: Config = {
   theme: {
     extend: {
       backgroundColor: {
-        ...ringColors
+        ...ringColors,
+        enroute_blue: '#128efe',
+        enroute_yellow: '#fdee23',
+        enroute_gray: '#f2f2f2'
       }
     },
   },
