@@ -32,7 +32,7 @@ const ColorSelect = ({ colors, selectColor }: ColorSelectProps) => {
   }, [state, colors])
 
   return (
-    <select className="seleccionarColor" onChange={selectValue}>
+    <select className="seleccionarColor px-3 py-2 rounded-lg drop-shadow-md" onChange={selectValue}>
       {
         colors.map((color) => {
           return (

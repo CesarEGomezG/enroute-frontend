@@ -93,8 +93,8 @@ const ColorCalculator = () => {
   }, [state.load.colorValues, loadColorValues])
 
   return (
-    <div className="flex flex-col justify-center">
-      <div className="bg-enroute_gray rounded-md px-6 py-4 inline-block self-center text-black">
+    <div className="flex flex-col justify-center drop-shadow-md">
+      <div className="bg-enroute_gray rounded-md px-6 py-4 inline-block self-center shadow-inner-lg text-black">
         <div className="grid grid-cols-2 gap-3">
           <p className="self-center">First figure color:</p>
           <ColorSelect colors={state.colors.figures} selectColor={(colorId: number) => selectColor({ firstFigure: colorId })} />
@@ -105,10 +105,10 @@ const ColorCalculator = () => {
           <p className="self-center">Tolerance color:</p>
           <ColorSelect colors={state.colors.tolerance} selectColor={(colorId: number) => selectColor({ tolerance: colorId })} />
         </div>
-        <button className="bg-enroute_yellow px-6 py-3 rounded-sm w-full mt-3" onClick={calculateValue}>Calculate value</button>
+        <button className="bg-enroute_yellow px-6 py-3 rounded-xl w-full mt-3 drop-shadow-md font-semibold" onClick={calculateValue}>Calculate value</button>
       </div>
-      <p className="text-center pt-6 pb-2">The value is:</p>
-      <p className="text-center text-xl font-bold">{state.ohmValue}</p>
+      <p className="text-center mt-6 mb-2">{state.ohmValue !== '' ? 'The value is:' : ''}</p>
+      <p className="text-center text-xl font-bold mb-6">{state.ohmValue}</p>
     </div>
   )
 }
