@@ -25,7 +25,7 @@ const databaseColors: ringColor[] = [
   {
       id: 3,
       name: "black",
-      "figure": 0,
+      figure: 0,
       hex: "#0e0e10",
       multiplier: 1,
       tolerance: null
@@ -33,7 +33,7 @@ const databaseColors: ringColor[] = [
   {
       id: 4,
       name: "brown",
-      "figure": 1,
+      figure: 1,
       hex: "#7e4b26",
       multiplier: 10,
       tolerance: 1
@@ -41,7 +41,7 @@ const databaseColors: ringColor[] = [
   {
       id: 5,
       name: "red",
-      "figure": 2,
+      figure: 2,
       hex: "#a72920",
       multiplier: 100,
       tolerance: 2
@@ -49,7 +49,7 @@ const databaseColors: ringColor[] = [
   {
       id: 6,
       name: "orange",
-      "figure": 3,
+      figure: 3,
       hex: "#f67828",
       multiplier: 1000,
       tolerance: 0.05
@@ -57,7 +57,7 @@ const databaseColors: ringColor[] = [
   {
       id: 7,
       name: "yellow",
-      "figure": 4,
+      figure: 4,
       hex: "#f6b600",
       multiplier: 10000,
       tolerance: 0.02
@@ -65,7 +65,7 @@ const databaseColors: ringColor[] = [
   {
       id: 8,
       name: "green",
-      "figure": 5,
+      figure: 5,
       hex: "#61993b",
       multiplier: 100000,
       tolerance: 0.5
@@ -73,7 +73,7 @@ const databaseColors: ringColor[] = [
   {
       id: 9,
       name: "blue",
-      "figure": 6,
+      figure: 6,
       hex: "#007cb0",
       multiplier: 1000000,
       tolerance: 0.25
@@ -81,7 +81,7 @@ const databaseColors: ringColor[] = [
   {
       id: 10,
       name: "violet",
-      "figure": 7,
+      figure: 7,
       hex: "#76689a",
       multiplier: 10000000,
       tolerance: 0.1
@@ -89,7 +89,7 @@ const databaseColors: ringColor[] = [
   {
       id: 11,
       name: "gray",
-      "figure": 8,
+      figure: 8,
       hex: "#7a888e",
       multiplier: 100000000,
       tolerance: 0.01
@@ -97,7 +97,7 @@ const databaseColors: ringColor[] = [
   {
       id: 12,
       name: "white",
-      "figure": 9,
+      figure: 9,
       hex: "#e3d9c6",
       multiplier: 1000000000,
       tolerance: null
