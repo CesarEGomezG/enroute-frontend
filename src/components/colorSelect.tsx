@@ -20,7 +20,6 @@ const ColorSelect = ({ colors, selectColor }: ColorSelectProps) => {
     const selectedOption = event.target.options[event.target.selectedIndex]
     const selectedName = selectedOption.textContent
     const selectedBackgroundColor = `bg-rg_${selectedName}`
-    console.log(selectedBackgroundColor)
     setState({...state, color: selectedBackgroundColor})
     selectColor( parseInt(event.target.value) )
   }

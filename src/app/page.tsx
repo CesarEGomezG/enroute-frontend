@@ -3,22 +3,23 @@ import Link from "next/link"
 const Home = () => {
   return (
     <main className="p-4 text-center">
-      <p className="text-3xl font-semibold">Ohm Value Calculator</p>
-      <p className="mb-2">Calculates the Ohm value of a resistor based on the band colors</p>
+      <p className="text-3xl font-semibold text-enroute_yellow">Ohm Value Calculator</p>
+      <p className="mt-2 mb-4">Calculates the Ohm value of a resistor based on the band colors</p>
       <a target="_blank" href="https://github.com/CesarEGomezG">
-        <p>Made by Cesar Eliezer Gomez Gutierrez</p>
+        <p className="underline hover:text-enroute_yellow hover:font-semibold">Made by Cesar Eliezer Gomez Gutierrez &gt;</p>
       </a>
       <a target="_blank" href="https://enroutesystems.com">
-        <p className="mb-2">To Enroute Systems</p>
+        <p className="underline hover:text-enroute_yellow hover:font-semibold mb-2">To Enroute Systems &gt;</p>
       </a>
-      <a target="_blank" href="">
-        <p>Front-End GitHub repository</p>
+      <p className="mt-4 mb-1">Repositories:</p>
+      <a target="_blank" href="https://github.com/CesarEGomezG/enroute-frontend">
+        <p className="underline hover:text-enroute_yellow hover:font-semibold">Front-End GitHub repository &gt;</p>
       </a>
-      <a target="_blank" href="">
-        <p>Back-End GitHub repository</p>
+      <a target="_blank" href="https://github.com/CesarEGomezG/enroute-backend">
+        <p className="underline hover:text-enroute_yellow hover:font-semibold">Back-End GitHub repository &gt;</p>
       </a>
       <Link href="/calculator">
-        <button className="bg-gray-200 py-1 px-4 rounded-md">Go to calculator</button>
+        <button className="bg-white px-6 py-2 rounded-xl drop-shadow-md font-semibold text-black mt-6">Go to calculator</button>
       </Link>
     </main>
   )

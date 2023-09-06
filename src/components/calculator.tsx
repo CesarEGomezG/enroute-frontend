@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react"
 import ColorSelect from "./colorSelect"
 import { calculateOhmValue, getCompleteRingColors, getMultiplierColors, getSignificantFigureColors, getToleranceColors, incompleteColor, ringColor } from "@/utils/ringColors"
+import "./calculator.css"
 
 export type State = {
   colors: {
@@ -31,7 +32,6 @@ const ColorCalculator = () => {
 
   const loadColorValues = useCallback( async (): Promise<void> => {
     const allRingColors = await getCompleteRingColors()
-    console.log(allRingColors)
     const figuresColors = getSignificantFigureColors()
     const multiplierColors = getMultiplierColors(allRingColors)
     const toleranceColors = getToleranceColors(allRingColors)
@@ -107,8 +107,12 @@ const ColorCalculator = () => {
         </div>
         <button className="bg-enroute_yellow px-6 py-3 rounded-xl w-full mt-3 drop-shadow-md font-semibold" onClick={calculateValue}>Calculate value</button>
       </div>
-      <p className="text-center mt-6 mb-2">{state.ohmValue !== '' ? 'The value is:' : ''}</p>
-      <p className="text-center text-xl font-bold mb-6">{state.ohmValue}</p>
+      {
+        state.load.colorValues ? <>
+          <p className="text-center mt-6 mb-2">{state.ohmValue !== '' ? 'The value is:' : ''}</p>
+          <p className="text-center text-xl font-bold mb-6">{state.ohmValue}</p>
+        </> : <div className="loader self-center my-4"></div>
+      }
     </div>
   )
 }
