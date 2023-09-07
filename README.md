@@ -1,5 +1,6 @@
 ## Requirements
 * Git
+* Node.js
 * NPM or equivalent
 
 ## Instructions
